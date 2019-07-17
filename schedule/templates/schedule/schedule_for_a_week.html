@@ -1,0 +1,46 @@
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <a href="/schedule/">На главную</a>
+    {% for day in days %}
+        {% for classes in day.1 %} <!-- Дни -->
+        <table>
+            {% if day.0 == ground_date %}
+            <h2><font color="green">{{classes.0.weekday}} [{{ day.0 }}]</font></h2>
+            {% elif ground_date is None %}
+            <h2>{{classes.0.weekday}} [{{ day.0 }}]</h2>
+            {% else %}
+            <h2><font color="orange">{{classes.0.weekday}} [{{ day.0 }}]</font></h2>
+            {% endif %}
+            <tr>
+                <th>Время</th>
+                <th>Дата</th>
+                <th>Дисциплина</th>
+                <th>Вид занятия</th>
+                <th>Аудитория</th>
+                <th>Здание</th>
+                <th>Преподаватель</th>
+                <th>Кафедра</th>
+            </tr>
+            {% for cls in classes %} <!-- Предметы -->
+                <tr>
+                    <th>{{ cls.time }}</th>
+                    <th>{{ cls.date }}</th>
+                    <th>{{ cls.name }}</th>
+                    <th>{{ cls.type }}</th>
+                    <th>{{ cls.classroom }}</th>
+                    <th>{{ cls.building }}</th>
+                    <th>{{ cls.professor }}</th>
+                    <th>{{ cls.department }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+        {% endfor %}
+    {% endfor %}
+    <p><a href="/schedule/">На главную</a>
+</body>

@@ -1,0 +1,13 @@
+{% for day in schedule %}
+    ***{{ day.0.weekday }}*** [{{ date }}] [{{ type_of_week }}]</br>
+    {% for cls in day %}
+        Время: {{ cls.time }}</br>
+        Дата: {{ cls.date }}</br>
+        Дисциплина: {{ cls.name }}</br>
+        Вид занятия: {{ cls.type }}</br>
+        Аудитория: {{ cls.classroom }}</br>
+        Здание: {{ cls.building }}</br>
+        Преподаватель: {{ cls.professor }}</br>
+        Кафедра: {{ cls.department }}</br></br>
+    {% endfor %}
+{% endfor %}

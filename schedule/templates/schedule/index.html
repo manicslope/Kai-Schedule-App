@@ -1,0 +1,66 @@
+<!-- <a href="/schedule/full/4403">Полное расписание</a><p>
+<a href="/schedule/week/4403">На эту неделю</a><p>
+<a href="/schedule/next_week/4403">На следующую неделю</a><p> -->
+<!-- <a href="/schedule/27-02-19/4403">На конкретную дату(27-02-19)</a><p> -->
+<!-- {% load staticfiles %} -->
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <style type="text/css">
+        /* div {
+            margin-left: auto;
+            margin-right: auto;
+            width: 8em } */
+            input {
+                width: 20em;  height: 2em;
+            }
+            div {
+                padding-top: 60px;
+                padding-left: 35px;
+            }
+            body {
+                background-image: url("http://old.kai.ru/pics/build/9d-big.jpg"); /* Путь к фоновому изображению */
+                background-size: cover; /* Цвет фона */
+               }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    function checkInput(clicked_id) {
+        // alert(clicked_id)
+        var answer = "";
+        var group_number=$.trim($("#group_number").val());
+        if(group_number.length==0) {
+            answer += "Введите номер группы\n";
+        }
+        if (clicked_id == undefined) {
+            if (answer) {  //Repetative
+                alert(answer);
+            }
+            return true;
+        }
+        var date=$.trim($("#date_value").val());
+        if(!date) {
+            answer += "Введите дату";
+        }
+        if (answer) {
+            alert(answer);
+        }
+    }
+</script>
+<form method="get">
+    <div class="form-group" align="center">
+        <h4>Номер группы:</h4><p>
+        <input type="text" id="group_number" name="group_number" placeholder="0123"><p>
+        <input type="submit" onclick="checkInput()" name="full" value="Полное расписание""><p>
+        <input type="submit" onclick="checkInput()" name="week" value="На эту неделю"><p>
+        <input type="submit" onclick="checkInput()" name="next_week" value="На следующую неделю"><br>
+        <h4>Дата:</h4>
+        <input type="date" id="date_value" name="day"><p><p>
+        <input type="submit" id="submit_date" onclick="checkInput(this.id)" name="date" value="На конкретную дату">
+    </div>
+
+</form>
+
+<ul>
+
+</ul>
