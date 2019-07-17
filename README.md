@@ -1,2 +1,4 @@
 # Kai-Schedule-App
-Schedule app for kai university, written in Django
+This a schedule app for kai university, written in Django.
+## How to deploy
+For correct work of application, change ALLOWED_HOST in settings.py.
